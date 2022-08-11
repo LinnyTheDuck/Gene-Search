@@ -22,4 +22,4 @@ BEGIN{
 }
 
 # print the string to a file
-{ print > "reverse_compliment.txt" }
+{ print }

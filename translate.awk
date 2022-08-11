@@ -42,4 +42,4 @@ BEGIN{
 }
 
 # print out the peptides to a text file
-{ printf("%s", p)  >> "peptides.txt" }
+{ printf("%s", p) }
