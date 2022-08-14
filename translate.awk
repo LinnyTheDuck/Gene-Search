@@ -19,6 +19,8 @@ BEGIN{
 }
 
 {
+  # set the variable i to be equal to 1
+  i="1"
   do {
     # split input into substrings of length 3
     triplet = substr($0, i, 3)
@@ -42,4 +44,7 @@ BEGIN{
 }
 
 # print out the peptides to a text file
-{ printf("%s", p) }
+{ printf("%s\n", p) }
+
+# clear the value of p to avoid concatenation
+p=""

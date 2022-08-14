@@ -24,3 +24,8 @@ BEGIN	{
     }
     
 }
+
+# loop until end 
+    # find ATG start now loop
+        # reading frame of 3
+        # until find end codon - then break out of loop
