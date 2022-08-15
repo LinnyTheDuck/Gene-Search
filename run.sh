@@ -7,10 +7,10 @@ Will print all output to the console, add \"> file\" at the end to direct all st
 "
 else
     # go up a directory to access all the awk programs
-    cd ..
+    #cd ..
     # will run all the awk files together
     # extracts, finds the genes, translates into peptide sequence
-    awk -f extract.awk $0 | awk -f isolate_subsequence.awk | awk -f translate.awk
+    awk -f extract.awk $1 | awk -f isolate_subsequences.awk | awk -f translate.awk > peptides.txt
     # extracts, converts to reverse compliment, finds the genes, translates into peptide sequence
-    awk -f extract.awk $0 | awk -f reverse_compliment.awk | awk -f isolate_subsequence.awk | awk -f translate.awk
+    awk -f extract.awk $1 | awk -f reverse_compliment.awk | awk -f isolate_subsequences.awk | awk -f translate.awk >> peptides.txt
 fi
