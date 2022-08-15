@@ -29,6 +29,6 @@ BEGIN	{
         if (i < length(substring) && i != 4){
             print substr(substring, 0, i + 2) # >> "subsequences.txt"
         }
-        substring = substr(substring, i + 3)
+        substring = substr(substring, 3)
     }  
 }
