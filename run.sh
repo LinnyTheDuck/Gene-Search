@@ -14,7 +14,7 @@ else
     # extracts, converts to reverse compliment, finds the genes, translates into peptide sequence
     awk -f extract.awk $1 | awk -f reverse_compliment.awk | awk -f isolate_subsequences.awk | awk -f translate.awk >> peptides.txt
     # peptide sequence that are 15 characters long or greater, order by size
-
+    awk -f size_filter.awk peptides.txt > final.txt
     # convert to fasta format
 
 fi
