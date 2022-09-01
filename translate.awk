@@ -14,8 +14,8 @@ BEGIN{
   c["GGA"]="G"; c["GGC"]="G"; c["GGG"]="G"; c["GGT"]="G";
   c["TCA"]="S"; c["TCC"]="S"; c["TCG"]="S"; c["TCT"]="S";
   c["TTC"]="F"; c["TTT"]="F"; c["TTA"]="L"; c["TTG"]="L";
-  c["TAC"]="Y"; c["TAT"]="Y"; c["TAA"]="*"; c["TAG"]="*";
-  c["TGC"]="C"; c["TGT"]="C"; c["TGA"]="*"; c["TGG"]="W";
+  c["TAC"]="Y"; c["TAT"]="Y"; c["TAA"]=""; c["TAG"]="";
+  c["TGC"]="C"; c["TGT"]="C"; c["TGA"]=""; c["TGG"]="W";
 }
 
 {
