@@ -10,7 +10,15 @@ Then BLAST will be used to analyze these sequences to see if any of them are act
 
 Give bash script executeable permissions: `chmod 755 run.sh`
 
-To run: `.\run.sh <contig file name>`
+To run: `.\run.sh <contig file name> <option>`
+
+```
+By default a file with each gene and corresponding protien sequence will be produced.
+
+Options:
+-l      also generate peptides of length 15 or longer for BLAST lookup
+-i      also keep intermediate files  
+```
 
 ### AWK Scripts
 
