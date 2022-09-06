@@ -19,7 +19,7 @@ else
     cat genes.txt | awk '{ print length, $0 }' | sort -n | awk '{$1=""; print $0}' > sorted_genes.txt
     cat peptides.txt | awk '{ print length, $0 }' | sort -n | awk '{$1=""; print $0}' > sorted_peptides.txt
     # reverse the files
-
+    
     # combine the files into the order tony specified
     
     # peptide sequence that are 15 characters long or greater, for blasting
