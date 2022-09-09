@@ -33,3 +33,8 @@ Options:
 1. `final_results.txt` contains the final 15 strongest protien candidates found
 2. `corresponding_genes_peptides.txt` contains all putative genes found in the `contig2.fa` file, and their corresponding translations, listed from longest to shortest
 3. `peptides_for_lookup.txt` contains all the peptides of length 15 or longer for BLAST lookup
+
+### Members of Blue Team
+Stefenie Pickston 1506427
+Grady McCallum 1545313
+Cat Turnbull 
