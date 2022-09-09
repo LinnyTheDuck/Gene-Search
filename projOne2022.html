@@ -1,0 +1,150 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<style>
+body { font-family: serif; font-size: 10pt}
+h2 { font-size: 24px; 
+font-style: italic;
+}
+</style>
+</head>
+<body>
+
+<h3>Pair Project One — Gene search</h3>
+
+<h4>Due:  09 September 2022</h4>
+<h4>Worth:  30% of final course mark </h4>
+<p>
+A contig is a portion of a genome assembled from a collection of
+reads.  A contig is typically thousands of bases in length.  It is of
+interest to find out what genes might exist within a contig, what 
+proteins they code for, and which organism the genetic fragment most likely 
+comes from.  These are the objectives of this assignment.  We will be working with 
+recently assembled contigs, so we are actually attempting to help with a 
+practical bioinformatics problem.
+</p>
+
+<p>
+This assignment is to be completed in teams of three or four.  The teams are as follows:
+<table border="1">
+<tbody><tr><th width="100"> team name</th><th width="200">biologist, computer scientists</th></tr>
+<tr><td> Red </td><td>Sally, Daniel, Sheba, Anton</td></tr>
+<tr><td> Blue </td><td>Cat, Stefenie, Grady</td></tr>
+</tbody></table>
+</p>
+
+<p> Awk code is to be written to extract potential genes and translate
+  them to corresponding protein sequences, and to compute the reverse
+  complement of the contig to look for more potential genes/proteins
+  there.  Then BLAST is to be used to analyze these sequences to see
+  if any of them are actual genes, and also hopefully figure out which
+  organism the contigs likely come from.
+</p>
+<p>
+  Each awk script should be designed and tested by the computer 
+scientists in the team, either together or separately, and then each 
+computer scientist should sit down with the team biologist and teach 
+them how to write the code from scratch, how to use it, what it does and
+ how it works.  That is to say, one of our principal goals is to teach 
+our biologists some scripting!
+</p>
+
+<h4>Approach:</h4>
+
+<p>
+Data is provided as a plain text file where the first line is just a
+reference label that is unimportant to us, and the remaining lines are
+the primary sequence, printed 60 bases per line.  A sample file
+(contig00028.txt) is available now on the course moodle page for
+development and testing. Another will be made
+available in a week or so for your final results (n.b. I am only interested in results for this second contig).
+</p>
+
+The following separate awk programs are required:
+<ul>
+ <li> extract the sequence from the contig file (producing one line of dna)
+ </li><li> isolate and extract subsequences that are potential genes
+ (n.b. for out purposes, only ATG can start a gene and only TAA, TGA
+ or TAG can be an end codon); output is one potential gene per line
+ </li><li> compute the reverse complement of the sequence, then isolate and
+ extract potential genes from that as well
+ </li><li> translate potential genes into corresponding protein
+ sequences (n.b. regexps are really useful here, so take advantage of that to make terse code)
+ </li><li> any additional procedures or intermediate steps deemed necessary
+   or useful to you
+ </li><li> n.b. while there are unix commands that can do some of these
+   operations, your final solution for these operations should be awk programs
+</li></ul>
+<p>
+  Each awk program should accept standard input and produce standard output,
+so that the original file can be piped into the first program, whose
+output can be piped into the second program, whose output can be piped
+into the third, and so forth.  In this way, each step can be run
+independently, and a separate shell script (or more awk code) can be
+written to execute a subset of these awk programs as a single process
+pipe.  You may feel free to write such scripts.  All your final code
+should run on a Linux machine like those found in Lab 6 or 7 (although
+you may develop on any machine you like) so make sure you test it
+before you submit it. (N.b. awk is available for windows machines,
+although using it with the cmd shell has some peculiarities about how
+to use quotes.)
+</p>
+<p>
+Once putative genes and proteins have been computed, use BLAST to evaluate
+them and ascertain which are most likely <i>bona fide</i> gene products.  We
+have no idea how many genes there might be, so if it turns out there
+are a lot then try to just find some of the most likely ones; that is,
+strong matches according to BLAST results. You might, for example,
+ignore particularly short or long sequences.  Note that BLASTing
+should be done with the protein sequences rather than the putative genes
+themselves.
+</p>
+
+<h4>Submission</h4>
+
+<p>
+Submit via Moodle a compressed tarball for a folder/directory whose
+name is the team's name and which contains the following:
+</p><ul>
+<li> separate code files for each of the awk programs and any
+shell scripts, in a subdirectory called "scripts"
+</li><li> a README file explaining how to use the code to go from contig
+  file to genes and proteins,
+</li><li> a plain text file of all putative genes found in the second
+  contig file, and their corresponding translations, listed from
+  longest to shortest (you may use Unix commands for this if it is helpful)
+  as pairs (gene followed by translation as two lines) and these pairs should be
+  separated by a blank line.
+</li><li> a text file with final results: a list of (around)15 strong candidate
+  proteins found in the second contig file.  These must be different
+  proteins, not variants.  Each protein in this file is to be in a
+  FASTA-like format, comprised of three lines:
+  <ol>
+    <li>a comment line (starting with a greater-than sign) with the following fields:
+      <ol>
+	<li> the name of the contig it came from (e.g. contig00028)
+	</li><li> the index into the contig where this sequence starts, 
+preceded by the letter "r" if it came from the supplied reference contig
+ or a "c" if it came from the reverse complement (e.g. c245 means this 
+sequence starts at position 245 relative to the start of the reverse 
+complement sequence)
+	</li><li> the protein name as found by BLAST, and
+	</li><li> the BLAST e-score
+      </li></ol>
+    </li><li> the protein sequence as translated from the gene found in
+      the contig
+    </li><li> the gene sequence as found in the contig (or reverse complement) and whose translation is given by the preceding line.
+  </li></ol>
+</li><li>caution: I am looking for different genes/proteins so be 
+careful you don't submit duplicates (which can happen if there is a 
+false start to a potential gene sequence)
+</li></ul>
+
+<p>
+Only one team member should submit the team's solution via Moodle.
+Other team members should confirm the submission was successful. Note that
+the README file should include the team name, and the full names of the
+team members with their student ID numbers.
+</p>
+
+
+</body></html>
