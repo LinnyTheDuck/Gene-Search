@@ -36,5 +36,7 @@ Options:
 
 ### Members of Blue Team
 Stefenie Pickston 1506427
+
 Grady McCallum 1545313
+
 Cat Turnbull 
